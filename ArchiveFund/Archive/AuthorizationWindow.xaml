@@ -1,0 +1,66 @@
+﻿<Window x:Class="Archive.AuthorizationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Archive"
+        mc:Ignorable="d"
+        Title="AuthorizationWindow" Height="450" Width="320" MinWidth="180" MaxHeight="450" MaxWidth="320" MinHeight="450">
+
+    <Grid x:Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Background="#FDEED9" Orientation="Horizontal">
+            <Image Source="Images/Archive.png"/>
+            <Label Content="Архивный фонд" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"
+                   FontWeight="Bold" Foreground="#8A7567" FontSize="17"/>
+        </StackPanel>
+
+        <DockPanel Grid.Row="1" >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="10"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="10"/>
+                </Grid.RowDefinitions>
+                <Border Grid.Column="1" Grid.Row="1" CornerRadius="20" Background="#FED6BC">
+                    <StackPanel>
+                        <Label Margin="0,0,0,20" Content="Авторизация" HorizontalContentAlignment="Center"  FontWeight="Bold" Foreground="#8A7567" FontSize="32"/>
+                        <DockPanel Margin="5">
+                            <Label Width="60" Content="Логин"/>
+                            <TextBox Style="{DynamicResource RoundTextBox}" x:Name="LoginText" VerticalContentAlignment="Center"/>
+                        </DockPanel>
+                        <DockPanel Margin="5">
+                            <Label Content="Пароль" Width="60"/>
+                            <Button Style="{DynamicResource RoundButton}" x:Name="PasswordButton" DockPanel.Dock="Right" Margin="5,0,0,0" Width="25" TabIndex="1"  MouseEnter="PasswordButton_MouseEnter" MouseLeave="PasswordButton_MouseEnter">
+                                <Image Source="Images/search-icon.png"/>
+                            </Button>
+                            <TextBox Style="{DynamicResource RoundTextBox}" x:Name="PasswordTextBox" Width="0" Visibility="Hidden" TabIndex="1" VerticalContentAlignment="Center"/>
+                            <PasswordBox x:Name="PasswordPasswordBox" VerticalContentAlignment="Center"/>
+                        </DockPanel>
+
+                        <Button Style="{DynamicResource RoundButton}" x:Name="AuthorizationCommit" Content="Войти" Height="35" Width="200" Margin="15,15,15,0"
+                                Click="AuthorizationCommit_Click">
+                        </Button>
+                        <Button Style="{DynamicResource RoundButton}" x:Name="RegistrationButton" Content="Регистрация" Width="200" Height="35" Margin="15,15,15,0"
+                                Click="RegistrationButton_Click">
+                        </Button>
+                        <Button Style="{DynamicResource RoundButton}" x:Name="AuthorizationRollBack" Content="Выйти" Height="35" Width="200" Background="#B7B08B" Margin="15,15,15,0"
+                                Click="AuthorizationRollBack_Click">
+                        </Button>
+                        <Rectangle Height="40"/>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </DockPanel>
+    </Grid>
+
+</Window>
